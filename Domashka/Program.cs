@@ -1,13 +1,4 @@
-﻿//пользователь вводит сторону квадрата, нужно вывести площадь квадрата
-// S = a × a, где S — площадь, a — сторона.
-Console.Write("Введите сторону квадрата(a):");
-double a = double.Parse(Console.ReadLine());
-double s = a * a;
-Console.Write("s= " + a + "*" + a);
-Console.WriteLine("; S=" + s);
-Console.ReadKey();
+﻿using Domashka;
 
-//Console.Readkey решил по приколу написать
-
-
-
+Heron prog = new Heron();
+prog.Go();
