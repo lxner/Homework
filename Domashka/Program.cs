@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Heron prog = new Heron();
+InternetClub prog = new InternetClub();
 prog.Go();
