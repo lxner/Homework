@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-InternetClub prog = new InternetClub();
+Train prog = new Train();
 prog.Go();
