@@ -25,15 +25,6 @@ namespace Domashka
              Console.WriteLine("минут: " + tm);
              double cs = tm * 60 + s;
              Console.Write("секунд: " + cs);
-              
-
-
-
-
-
-
-
-
 
         }
 

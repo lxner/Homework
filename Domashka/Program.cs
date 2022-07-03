@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Train prog = new Train();
+Function1 prog = new Function1();
 prog.Go();
