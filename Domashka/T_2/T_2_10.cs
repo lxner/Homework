@@ -14,9 +14,12 @@ namespace Domashka
             double p = double.Parse(Console.ReadLine());
             double a = p / 10;
             Console.WriteLine("Число десятков в числе: " + a);
-            double b = p / 1; 
+            double b = p % 10 ;
             Console.WriteLine("Число единиц: " + b);
-            double c = p x
+            double k = a + b;
+            Console.WriteLine("сумма: " + k);
+            double l = a * b;
+            Console.WriteLine("произведение: " + l);
         }
     }
 }
