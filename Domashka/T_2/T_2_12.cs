@@ -14,7 +14,7 @@ namespace Domashka
             double a = double.Parse(Console.ReadLine());
             double b = a % 10;
             Console.WriteLine("число едениц: " + b);
-            double c = a / 10;
+            double c = a % 100;
             Console.WriteLine("Число десятков: " + c);
             double d = a / 100;
             double e = b + c + d;
