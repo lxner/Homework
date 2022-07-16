@@ -11,16 +11,22 @@ namespace Domashka
         public void Go()
         {
             Console.WriteLine("Введите число: ");
-            double a = double.Parse(Console.ReadLine());
-            double b = a % 10;
-            Console.WriteLine("число едениц: " + b);
-            double c = a % 100;
+            int a = int.Parse(Console.ReadLine());
+
+            int b = a%10;
+            Console.WriteLine("число единиц: " + b);
+
+            int c = (a/10)%10;
             Console.WriteLine("Число десятков: " + c);
-            double d = a / 100;
-            double e = b + c + d;
-            Console.WriteLine("Сумма цифр: " + e);
-            double f = b * c * d;
-            Console.WriteLine("Произведение: " + f);
+
+            int d = a/100;
+            Console.WriteLine("число сотен: " + d);
+
+            int sum = b + c + d;
+            int prod = b*c*d;
+            Console.WriteLine("Сумма цифр: " + sum);
+            Console.WriteLine("Произведение: " + prod);
+           
         }
     }
 }
