@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Exclusive4Number prog = new Exclusive4Number();
+T_2_14 prog = new T_2_14();
 prog.Go();
