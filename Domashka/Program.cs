@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-T_4_8 prog = new T_4_8();
+T_4_9 prog = new T_4_9();
 prog.Go();
