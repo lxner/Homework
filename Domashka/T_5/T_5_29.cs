@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domashka
 {
-    internal class T_5_28
+    internal class T_5_29
     {
         public void Go()
         {
@@ -16,14 +16,13 @@ namespace Domashka
             double b = double.Parse(Console.ReadLine());
             for (double i = a; i <= b; i++)
             {
-
-                double m = 1;
-                double z = (m+m)*i; // произведение всех чисел от a до b
-                Console.WriteLine(" " + z);
+                double z = ((i+b)/2);
+                double x = z+i;
+                Console.WriteLine(" " + x);
             }
         }
     }
 }
+// (a+b)/2
 
-
-// найти произведение всех чисел от a до b, a и b вводятся с клавиатуры
+// найти среднее арифметическое всех чисел от a до b, a и b вводятся с клавиатуры
