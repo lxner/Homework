@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-AproizB prog = new AproizB();
+AandB prog = new AandB();
 prog.Go();
