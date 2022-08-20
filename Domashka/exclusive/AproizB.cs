@@ -15,12 +15,11 @@ namespace Domashka
             Console.WriteLine("Введите число до b: ");
             int b = int.Parse(Console.ReadLine());
             int proizv = 1;            
-            for (int i = a; i <= a; i++)
+            for (int i = a; i <= b; i++)
             {
 
                 proizv = proizv*i;
-                    
-                
+                                    
             }
             Console.WriteLine("Произведение: " + proizv);
             
@@ -29,3 +28,4 @@ namespace Domashka
 }
 
 // посчитать произведение от a до b
+//  (int i = a; i <= a; i++)
