@@ -23,6 +23,7 @@ namespace Domashka
             }
             double sred = sum / count;
             Console.WriteLine("Среднее арифмитическое = " + sred);
+            Console.WriteLine("Сумма цифр: " + sum);
 
         }
     }
