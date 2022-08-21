@@ -14,7 +14,7 @@ namespace Domashka
             int a = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите число до b: ");
             int b = int.Parse(Console.ReadLine());
-            int proizv = -1;
+            int proizv = 1;
             for (int i = a; i <= b; i++)          
             {
                 proizv = proizv + 1;
