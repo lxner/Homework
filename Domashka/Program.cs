@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-A34B prog = new A34B();
+A024B prog = new A024B();
 prog.Go();
