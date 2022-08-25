@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-NwhileN prog = new NwhileN();
+DowhileN prog = new DowhileN();
 prog.Go();
