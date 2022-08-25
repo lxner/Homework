@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Drobfive prog = new Drobfive();
+NwhileN prog = new NwhileN();
 prog.Go();
