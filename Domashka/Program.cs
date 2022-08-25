@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Aproizv3B prog = new Aproizv3B();
+Drobfive prog = new Drobfive();
 prog.Go();
