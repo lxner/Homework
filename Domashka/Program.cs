@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-Whiledrobcs prog = new Whiledrobcs();
+Dowhiledrob prog = new Dowhiledrob();
 prog.Go();
