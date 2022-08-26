@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-ForN prog = new ForN();
+Sumwhile prog = new Sumwhile();
 prog.Go();
