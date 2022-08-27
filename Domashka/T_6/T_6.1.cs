@@ -12,28 +12,27 @@ namespace Domashka
         {
             int count = 0;
             int sum = 0;
-            Console.WriteLine("Введите последовательность чисел, оканчивающаяся 0: ");
-            int a = int.Parse(Console.ReadLine());
             int i = 1;
-            if (a % 10 == 0)
-            {
-
-           
-            while(i <= a)
-            {
-                count = count + 1;
+            Console.WriteLine("Введите n: ");
+            int n = int.Parse(Console.ReadLine());                                 
+            while(i <= n)
+            {                             
                 Console.WriteLine("Введите число: ");
                 int b = int.Parse(Console.ReadLine());
+                if (b % 10 == 0)
+                {
+                    break;
+                }
                 sum = sum + b;
-                i++;
+                count = count + 1;
+                i++;         
             }
             Console.WriteLine("Сумма = " + sum);
             Console.WriteLine("Кол-во чисел:" + count);
-            }
-
         }
     }
 }
 
 
 // Дана не пустая последовательность целых чисел, оканчивающаяся нулём. Найти: кол-во всех чисел последовательности
+// нужно что бы когда пользователь вводил 0 прога закрывалась 
