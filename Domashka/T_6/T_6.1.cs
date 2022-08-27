@@ -12,14 +12,12 @@ namespace Domashka
         {
             int count = 0;
             int sum = 0;
-            int i = 1;
-            Console.WriteLine("Введите n: ");
-            int n = int.Parse(Console.ReadLine());                                 
-            while(i <= n)
+            int i = 0;                                      
+            while(i <= i)
             {                             
                 Console.WriteLine("Введите число: ");
                 int b = int.Parse(Console.ReadLine());
-                if (b % 10 == 0)
+                if (b % 10 == 0 || b / 10 == 0)
                 {
                     break;
                 }
