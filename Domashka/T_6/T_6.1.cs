@@ -12,9 +12,13 @@ namespace Domashka
         {
             int count = 0;
             int sum = 0;
-            Console.WriteLine("Введите, сколько всего чисел будет: ");
+            Console.WriteLine("Введите последовательность чисел, оканчивающаяся 0: ");
             int a = int.Parse(Console.ReadLine());
             int i = 1;
+            if (a % 10 == 0)
+            {
+
+           
             while(i <= a)
             {
                 count = count + 1;
@@ -25,6 +29,7 @@ namespace Domashka
             }
             Console.WriteLine("Сумма = " + sum);
             Console.WriteLine("Кол-во чисел:" + count);
+            }
 
         }
     }
