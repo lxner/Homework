@@ -11,18 +11,17 @@ namespace Domashka
         public void Go()
         {
             int count = 0;
-            int sum = 0;;                                      
+            int sum = 0;                                      
             while(true)
             {                             
                 Console.WriteLine("Введите число: ");
                 int b = int.Parse(Console.ReadLine());
-                if (b % 10 == 0)
+                if (b == 0)
                 {
                     break;
                 }
                 sum = sum + b;
-                count = count + 1;
-                         
+                count = count + 1;                        
             }
             Console.WriteLine("Сумма = " + sum);
             Console.WriteLine("Кол-во чисел:" + count);
