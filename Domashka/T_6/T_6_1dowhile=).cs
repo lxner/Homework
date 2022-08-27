@@ -11,19 +11,19 @@ namespace Domashka
         public void Go()
         {
             int count = 0;
-            int sum = 0;
-            int i = 1;
-            Console.WriteLine("Введите, сколько всего чисел будет: ");
-            int a = int.Parse(Console.ReadLine());
+            int sum = 0;           
             do
             {
                 Console.WriteLine("Введите число: ");
                 int b = int.Parse(Console.ReadLine());
+                if (b == 0)
+                {
+                    break;
+                }
                 sum = sum + b;
-                count = count + 1;
-                i++;
+                count = count + 1;               
             }
-            while (i <= a);
+            while (true);
             Console.WriteLine("Сумма = " + sum);
             Console.WriteLine("Кол-во чисел: " + count);
         }
