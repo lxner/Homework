@@ -16,12 +16,12 @@ namespace Domashka
             {
                 Console.WriteLine("Введите число: ");
                 int b = int.Parse(Console.ReadLine());
-                if (b == 0)
+                if (b != 0)
                 {
-                    break;
+                    sum = sum + b;
+                    count = count + 1;
                 }
-                sum = sum + b;
-                count = count + 1;               
+                             
             }
             while (true);
             Console.WriteLine("Сумма = " + sum);
