@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Domashka
 {
-    internal class T_6_2_while
+    internal class T_6_2dowhile
     {
         public void Go()
         {
             double count = 0;
             double sum = 0;
             double sred;
-            while (true)
+            do
             {
                 Console.Write("Введите число: ");
                 double a = double.Parse(Console.ReadLine());
-                if(a <= -1)
+                if (a <= -1)
                 {
                     break;
                 }
@@ -25,11 +25,13 @@ namespace Domashka
                 count = count + 1; // кол-во чисел
                 sred = sum/count;
                 Console.WriteLine("Среднее арифм: " + sred);
-
-            }             
+            }
+            while (true);
         }
     }
 }
 
 // Дана не пустая последовательность неотрицательных целых чисел, оканчивающаяся отрицательныи числом.
 // Найти среднее арифм. всех чисел последовательности (без учета отрицательного числа).
+
+
