@@ -10,11 +10,23 @@ namespace Domashka
     {
         public void Go()
         {
-            int count = 0;
-            int sum = 0;
-            int i = 1;
-            Console.WriteLine("Введите, сколько всего чисел будет: ");
-            int a = int.Parse(Console.ReadLine());
+            double count = 0;
+            double sum = 0;
+            double sred;
+            while (true)
+            {
+                Console.Write("Введите число: ");
+                double a = double.Parse(Console.ReadLine());
+                if(a <= -1)
+                {
+                    break;
+                }
+                sum = sum + a; // сумма
+                count = count + 1; // кол-во чисел
+                sred = sum/count;
+                Console.WriteLine("Среднее арифм: " + sred);
+
+            }             
         }
     }
 }
