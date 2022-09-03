@@ -1,4 +1,4 @@
 ﻿using Domashka;
 
-T_6_4Dowhile prog = new T_6_4Dowhile();
+T_6_4while prog = new T_6_4while();
 prog.Go();
