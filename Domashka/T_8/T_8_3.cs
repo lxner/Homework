@@ -25,7 +25,7 @@ namespace Domashka
 
             }
 
-
+            //
             //for (int z = 6; z >= 2; z--)
             //{
             //    Console.Write(z + " ");
