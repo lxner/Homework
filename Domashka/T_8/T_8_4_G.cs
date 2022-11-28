@@ -8,6 +8,7 @@ namespace Domashka
 {
     internal class T_8_4_G
     {
+        
         public void Go()
         {
             for (int i = 20; i >= 16; i--)
