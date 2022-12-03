@@ -10,55 +10,63 @@ namespace Domashka
 {
     internal class T_8_14
     {
+        static int checkRow(int[]ar, int n)
+        {
+            int count = 0;
+            if (ar[n] > 2)
+            {
+                count++;
+            }
+            return count;
+        }
         public void Go()
         {
-            
+            int count = 0;
+            int countt = 0;
             Random random = new Random();
-
-            // if (a[i][0]!=2 && a[i][1]!=2 && a[i][2]!=2)
-
-             // заполняем массив
-             int count = 0;
-            int i = 15;
-            int j = 3;
-            int[,] array = new int[i, j];
-            for (i = 0; i < array.GetLength(0); i++) //студенты
+            Console.WriteLine("кол-во студентов");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("кол-во предметов");
+            int b = int.Parse(Console.ReadLine());
+            int[,] array = new int[a, b];
+            Console.WriteLine();
+            for (int i = 0; i < a; i++)      // student
             {
-                Console.WriteLine(i + " Студент = ");
-                for (j = 0; j < array.GetLength(1); j++) //оценки
+                Console.WriteLine(i+1 + " студент ");
+                for (int j = 0; j < b; j++)              // predmet
                 {
-                    array[i, j] = random.Next(1, 5);
-                    Console.WriteLine("оценка по " + (j+1) + " предмету = " + array[i, j]);
+                    array[i, j] = random.Next(2, 5);
+                    Console.WriteLine(j+1 + " предмет: " + array[i, j]);
                 }
                 Console.WriteLine();
             }
-            // работа с имеющщимеся данными
             Console.WriteLine();
-            // int[] countt = new int[i];
-            // проверяю каждую оценку студента на 2
-            for (i = 0; i < array.GetLength(0); i++)   // student
+            for (int i = 0; i < a; i++)
             {
-
-                for (j = 0; j < array.GetLength(1); j++)   // оценки
+                for (int j = 0; j < b; j++)
                 {
-                    
-                    if (array[i,0] > 2 && array[i,1] > 2 && array[i,2] > 2)
+                    if (array[i, j] > 2)
                     {
                         count++;
                     }
                 }
+                if (count == b)
+                {
+                    countt++;
+                }
+                count = 0;
             }
-            Console.WriteLine("кол-во студентов сдавших без 2: " + count/3);
+            Console.WriteLine("количество студентов, сдавших сессию без двоек: "+ countt);
 
             //int count = 0;
             //Console.WriteLine("Введите n: ");
             //int n = int.Parse(Console.ReadLine());
-            //Random random2 = new Random();
+            //Random random = new Random();
             //int[] arr = new int[n];
             //Console.WriteLine();
             //for (int i = 0; i < arr.Length; i++)
             //{
-            //    arr[i] = random2.Next(1, 5);
+            //    arr[i] = random.Next(1, 5);
             //    Console.WriteLine(arr[i]);
             //}
             //Console.WriteLine();
@@ -67,17 +75,12 @@ namespace Domashka
             //    if (arr[i] < 3 && arr[i] > 0)
             //    {
             //        count++;
-
             //    }
-
-            //}
-            //for (int i = 0; i < 1; i++)
-            //{
+            //
             //    if (count > 0)
             //    {
             //        Console.WriteLine("кол-во плохих оценок: " +  count);
             //    }
-            //}
 
         }
     }
