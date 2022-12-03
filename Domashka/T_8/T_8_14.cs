@@ -21,8 +21,10 @@ namespace Domashka
         }
         public void Go()
         {
+            int dvoiki = 0;
             int count = 0;
             int countt = 0;
+            int _count = 0;
             Random random = new Random();
             Console.WriteLine("кол-во студентов");
             int a = int.Parse(Console.ReadLine());
@@ -49,14 +51,30 @@ namespace Domashka
                     {
                         count++;
                     }
+                    if (array[i, j] == 5 || array[i, j] == 4)
+                    {
+                        _count++;
+                    }
+                    if (array[i, j] == 2)
+                    {
+                        dvoiki++;
+                    }
                 }
                 if (count == b)
                 {
                     countt++;
                 }
                 count = 0;
+
             }
             Console.WriteLine("количество студентов, сдавших сессию без двоек: "+ countt);
+            Console.WriteLine("кол-во предметов, по которым были получены оценки 5 или 4: " + _count);
+            Console.WriteLine("кол-во двоек по каждому предмету: " + dvoiki);
+
+
+
+            // кол-во двоек по каждому предмету
+
 
             //int count = 0;
             //Console.WriteLine("Введите n: ");
