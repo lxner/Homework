@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,9 @@ namespace Domashka
             Random random = new Random();
             int max = -1000;
             int sum = 0;
-            int max3 = 0;
+            int maxsum = 0;
             int mj = 0;
+            int obsum = 0;
             Console.WriteLine("Введите кол-во работников: ");
             int a = int.Parse(Console.ReadLine());
             int b = 3; //kvartal
@@ -36,19 +38,33 @@ namespace Domashka
             {
                 for (int j = 0; j < b; j++)
                 {
-                    sum = sum + ar[i, j]; // sum
+                    sum = sum + ar[i, j]; // sum all
+                    
                     if (ar[i,j] > max)
                     {
-
-                        max = ar[i,j];
-                        mi = i;
+                        max = ar[i, j];
+                    }
+                    if (sum > obsum)
+                    {
+                        obsum = sum;
+                    }
+                    if (obsum > sum)
+                    {
                         mj = j;
                     }
                 }
+               
+                if (sum > maxsum)
+                {
+                    maxsum = sum;
+                    mi = i+1;
+                }
+                sum = 0;
+               
             }
             Console.WriteLine("максимальная зп в таблице: " + max);
             Console.WriteLine("Порядковый номер работника получившего за квартал наибольшую сумму: " + mi);
-            Console.WriteLine("максимальная общая зарплата работников была в " + mj + " месяце");
+            Console.WriteLine("Общая максимальная зарплата была в " + mj + " квартале");
         }
     }
 }
