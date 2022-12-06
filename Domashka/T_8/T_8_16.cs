@@ -23,7 +23,7 @@ namespace Domashka
             Console.WriteLine("Введите кол-во работников: ");
             int a = int.Parse(Console.ReadLine());
             int b = 3; //kvartal
-            int[,] ar = new int[a,b];
+            int[,] ar = new int[a, b];
             Console.WriteLine();
             for (int i = 0; i < a; i++)
             {
@@ -31,46 +31,56 @@ namespace Domashka
                 for (int j = 0; j < b; j++)
                 {
 
-                    ar[i,j] = random.Next(0,100);
-                    Console.WriteLine(j+1 + " квартал: " + ar[i,j]);
+                    ar[i, j] = random.Next(0, 100);
+                    Console.WriteLine(j+1 + " месяц: " + ar[i, j]);
                 }
                 Console.WriteLine();
             }
+            int mes = 0;
             // работаем с массивом,
+            int sum1 = 0;
+            int sum2 = 0;
+            int sum3 = 0;
             for (int i = 0; i < a; i++)
             {
                 for (int j = 0; j < b; j++)
                 {
+                    sum1 = sum1 + ar[i, 0];
+                    sum2 = sum2 + ar[i, 1];
+                    sum3 = sum3 + ar[i, 2];
                     sum = sum + ar[i, j]; // сумма всего массива
-                    
                     // находим максимум в таблице
-                    if (ar[i,j] > max)
+                    if (ar[i, j] > max)
                     {
-                        max = ar[i, j];   
+                        max = ar[i, j];
                     }
-                    // ищем общую максимальную зп (в каком квартале)
-                    if (sum > obsum)
+                    // находим общую зп
+                    if (sum1 > sum2 && sum1 > sum3)
                     {
-                        obsum = sum;
+                        obsum = 1;
                     }
-                    // если наша общая сумма больше суммы, то вот, общая максимальная зп за квартал
-                    if (obsum > sum)
+                    if (sum2 > sum1 && sum2 > sum3)
                     {
-                        mj = j;
+                        obsum = 2;
                     }
+                    if (sum3 > sum1 && sum3 > sum2)
+                    {
+                        obsum = 3;
+                    }
+                    // конец поиска общей зп
                 }
-               // ппоиск номера работника, получившего за квартал наибольшую сумму
+                // ппоиск номера работника, получившего за квартал наибольшую сумму
                 if (sum > maxsum)
                 {
                     maxsum = sum;
                     mi = i+1;
                 }
                 sum = 0;
-               
+
             }
             Console.WriteLine("максимальная зп в таблице: " + max);
             Console.WriteLine("Порядковый номер работника получившего за квартал наибольшую сумму: " + mi);
-            Console.WriteLine("Общая максимальная зарплата была в " + mj + " квартале");
+            Console.WriteLine("Общая зп всех работников была в месяце: " + obsum);
         }
     }
 }
