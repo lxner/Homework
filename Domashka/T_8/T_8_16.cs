@@ -11,76 +11,87 @@ namespace Domashka
     {
         public void Go()
         {
-            // обьявляю переменные для работы с ними.
-            Random random = new Random();
-            int mi = 0;         // переменная координата, дабы я мог вне области видимости юзать i (наши работники)
-            int max = -1000;   // в будущем для работы с максимумом
-            int sum = 0;      // в будушщм для того что бы положить туда сумму нашего массива
-            int maxsum = 0;  // в будушем будет для поиска максимальной суммы массива
-            int mj = 0;     // переменная координата, дабы я мог вне области видимости юзать j (наши 3 квартала)
-            int obsum = 0;
-            // заполняем наш массив
-            Console.WriteLine("Введите кол-во работников: ");
-            int a = int.Parse(Console.ReadLine());
-            int b = 3; //kvartal
-            int[,] ar = new int[a, b];
-            Console.WriteLine();
-            for (int i = 0; i < a; i++)
+            int sum;
+            int summ;
+            Random rnd = new Random();
+            int workerCount = 12;
+            int monthCount = 3;
+            int[,] arr = new int[workerCount, monthCount];
+            int[] sum_by_worker = new int[monthCount];
+            int[] sum_by_month = new int[workerCount];
+            int max = int.MinValue;
+            int maxx = int.MinValue;
+            // шаг 1, заполняем массив зп.
+            for (int i = 0; i < workerCount; i++)
             {
-                Console.WriteLine(i+1 + " работник");
-                for (int j = 0; j < b; j++)
+                Console.WriteLine(i + " работник: ");
+                for (int j = 0; j < monthCount; j++)
                 {
-
-                    ar[i, j] = random.Next(0, 100);
-                    Console.WriteLine(j+1 + " месяц: " + ar[i, j]);
+                    arr[i, j] = rnd.Next(0, 5);
+                    Console.WriteLine(j+1 + " месяц: " + arr[i, j]); // сразу выводим на экран
                 }
                 Console.WriteLine();
             }
-            int mes = 0;
-            // работаем с массивом,
-            int sum1 = 0;
-            int sum2 = 0;
-            int sum3 = 0;
-            for (int i = 0; i < a; i++)
+            Console.WriteLine();
+
+            // шаг 2, считаем массивы сумм по месяцам, и по работникам
+            for (int i = 0; i < workerCount; i++)
             {
-                for (int j = 0; j < b; j++)
+                for (int j = 0; j < monthCount; j++)
                 {
-                    sum1 = sum1 + ar[i, 0];
-                    sum2 = sum2 + ar[i, 1];
-                    sum3 = sum3 + ar[i, 2];
-                    sum = sum + ar[i, j]; // сумма всего массива
-                    // находим максимум в таблице
-                    if (ar[i, j] > max)
-                    {
-                        max = ar[i, j];
-                    }
-                    // находим общую зп
-                    if (sum1 > sum2 && sum1 > sum3)
-                    {
-                        obsum = 1;
-                    }
-                    if (sum2 > sum1 && sum2 > sum3)
-                    {
-                        obsum = 2;
-                    }
-                    if (sum3 > sum1 && sum3 > sum2)
-                    {
-                        obsum = 3;
-                    }
-                    // конец поиска общей зп
+                    sum_by_worker[j] += arr[i, j];
+                    sum_by_month[i] += arr[i, j];
                 }
-                // ппоиск номера работника, получившего за квартал наибольшую сумму
-                if (sum > maxsum)
-                {
-                    maxsum = sum;
-                    mi = i+1;
-                }
-                sum = 0;
 
             }
+            // шаг 3, вывожу суммы по работникам, и по месяцам
+            for (int i = 0; i < sum_by_worker.Length; i++)
+            {
+                Console.Write(sum_by_worker[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < sum_by_month.Length; i++)
+            {
+                Console.Write(sum_by_month[i] + " ");
+            }
+            Console.WriteLine();
+
+            // шаг 4, ищу максимальную зп в таблице.
+            for (int i = 0; i < workerCount; i++)
+            {
+                for (int j = 0; j < monthCount; j++)
+                {
+                    if (max < arr[i, j])
+                    {
+                        max = arr[i, j];
+                    }
+                }
+            }
             Console.WriteLine("максимальная зп в таблице: " + max);
-            Console.WriteLine("Порядковый номер работника получившего за квартал наибольшую сумму: " + mi);
-            Console.WriteLine("Общая зп всех работников была в месяце: " + obsum);
+
+            // шаг 5, ищу порядковый номер работника, получившего за квартал больщую сумму
+            int mj = 0;
+            for (int i = 0; i < sum_by_month.Length; i++)
+            {
+                if (sum_by_month[i] > maxx)
+                {
+                    maxx = sum_by_month[i];
+                    mj = i+1;
+                }
+            }
+            Console.WriteLine("порядковый номер работника, получившего за квартал больщую сумму: " + mj);
+            // шаг 6, в каком месяце общая зп всех работников была максимальной
+            int find = 0;
+            for (int i = 0; i < sum_by_worker.Length; i++)
+            {
+                if (sum_by_worker[i] > max)
+                {
+                    max = sum_by_worker[i];
+                    find = i+1;
+                }
+            }
+            Console.WriteLine("в каком месяце общая зп всех работников была максимальной: " + find + " месяце");
+
         }
     }
 }
