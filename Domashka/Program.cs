@@ -1,5 +1,5 @@
 ﻿using Domashka;
 using Domashka.T_8;
 
-komplONE prog = new komplONE();
+KomplTwo prog = new KomplTwo();
 prog.Go();
