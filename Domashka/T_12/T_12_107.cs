@@ -32,6 +32,7 @@ namespace Domashka
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
             //step 4. ищу номера двух соседних столбцов, сумма элементов в которых - минимальна
             int mj = 0;
             for (int j = 0; j < 14; j++)
@@ -44,11 +45,12 @@ namespace Domashka
                 if (sum < minsum)
                 {
                     minsum = sum;
-                    mj = j;
+                    mj = j+1;
                 }
             }
             Console.WriteLine(minsum);
-            Console.WriteLine(mj);
+            Console.Write(mj + " ");
+            Console.Write(mj+1);
         }
     }
 }
