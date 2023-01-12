@@ -45,12 +45,11 @@ namespace Domashka
                 if (sum < minsum)
                 {
                     minsum = sum;
-                    mj = j+1;
+                    mj = j;
                 }
             }
-            Console.WriteLine(minsum);
-            Console.Write(mj + " ");
-            Console.Write(mj+1);
+            Console.WriteLine("минимальная сумма:" + minsum);
+            Console.Write("столбцы с минимальной суммой:" + mj + " " + mj+1);
         }
     }
 }
