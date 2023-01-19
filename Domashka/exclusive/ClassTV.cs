@@ -12,15 +12,17 @@ namespace Domashka
     class TV
     {
         Random rnd = new Random();
-        public int currentchanel;
+        private int channel;
         public TV()
         {
-            currentchanel = rnd.Next(0,10);
+            channel = rnd.Next(0,10);
+            Console.WriteLine("Вы на дефолт канале: " + channel);
+            Console.WriteLine();
         }
-        public void NextChanel()
+        public void NextChannel()
         {
-            currentchanel++;
-            if (currentchanel > 10)
+            channel++;
+            if (channel > 10)
             {
                 Console.WriteLine("Ошибка, всего 10 каналов.");
                 Console.WriteLine("канал номер 10");
@@ -28,32 +30,32 @@ namespace Domashka
                 
             }
             Console.WriteLine("переключение на следующий канал");
-            Console.WriteLine("Канал номер: " + currentchanel);
+            Console.WriteLine("Канал номер: " + channel);
         }
 
-        public void PastChanel()
+        public void PastChannel()
         {
-            currentchanel--;
-            if (currentchanel < 0)
+            channel--;
+            if (channel < 0)
             {
                 Console.WriteLine("Оишбка, отрицательных каналов не существует");
                 Console.WriteLine("канал номер 0");
                 return;
             }
             Console.WriteLine("Переключение на предыдущий канал");
-            Console.WriteLine("Канал номер: " + currentchanel);
+            Console.WriteLine("Канал номер: " + channel);
         }
 
-        public void NumberofChanel()
+        public void NumberofChannel(int chanel)
         {
-            Console.WriteLine("Введите номер канала: ");
-            currentchanel = int.Parse(Console.ReadLine());
-            if (currentchanel < 0 || currentchanel > 10)
+            if (channel < 0 || channel > 10)
             {
                 Console.WriteLine("Максимальных каналов: 10, либо вы переключили на отрицательный канал (его не существует)");
                 return;
             }
-            Console.WriteLine("канал номер: " + currentchanel);
+            channel = chanel;
+            Console.WriteLine("переход к каналу по номеру " + chanel);
+            Console.WriteLine("канал номер: " + channel);
         }
     }
 
@@ -62,10 +64,10 @@ namespace Domashka
         public void Go()
         {
             TV mychanel1 = new TV();
-            mychanel1.NextChanel();
-            mychanel1.NumberofChanel();
-            mychanel1.NextChanel();
-            mychanel1.PastChanel();
+            mychanel1.NextChannel();
+            mychanel1.NumberofChannel(3);
+            mychanel1.NextChannel();
+            mychanel1.PastChannel();
 
         }
     }
