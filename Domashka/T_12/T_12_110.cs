@@ -17,25 +17,49 @@ namespace Domashka
             Random random = new Random();
             int year = 10;
             int months = 31;
-            int max_temp = 0;
-            int[,] arr = new int[year,months];
+            int[,] arr = new int[year, months];
             //step 1. Enter array
             for (int i = 0; i < year; i++)
             {
                 for (int j = 0; j < months; j++)
                 {
-                    arr[i, j] = random.Next(5,35);   // temperature
+                    arr[i, j] = random.Next(5, 35);   // temperature
                 }
             }
+            //step 2. Output array
             for (int i = 0; i < year; i++)
             {
                 Console.Write(i + " год: " + "\n");
                 for (int j = 0; j < months; j++)
                 {
-                    Console.WriteLine("Температура " + j + " дня " + arr[i,j] + " градусов\n");
+                    Console.WriteLine("Температура " + j + " дня " + arr[i, j] + " градусов\n");
                 }
                 Console.WriteLine();
             }
+            //step3. Ищу максимальную температуру за 7 дней, в периоде 10 лет
+            int mj = 0;
+            int max = int.MinValue;
+            for (int i = 0; i < year; i++)
+            {
+                int max_temp = 1;
+                for (int j = 0; j < months; j++)
+                {
+                    if (arr[i, j] > max)
+                    {
+                        max = arr[i, j];
+                       
+                    }
+                    if (max > max_temp)
+                    {
+                        max_temp = max;
+                    }
+
+                }
+                Console.WriteLine(max_temp);
+
+            }
+        
+
 
 
 
