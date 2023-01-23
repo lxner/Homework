@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Domashka
             int year = 10;
             int months = 31;
             int[,] arr = new int[year, months];
-            //step 1. Enter array
+            //step 1. Enter array   
             for (int i = 0; i < year; i++)
             {
                 for (int j = 0; j < months; j++)
@@ -36,33 +37,36 @@ namespace Domashka
                 }
                 Console.WriteLine();
             }
-            //step3. Ищу максимальную температуру за 7 дней, в периоде 10 лет
-            int mj = 0;
+            //step3. Ищу максимальную температуру подряд за 7 дней, в периоде 10 лет
             int max = int.MinValue;
+            int mj = 0;
+            int ch = 0;
+            int max_temp = int.MinValue;
             for (int i = 0; i < year; i++)
             {
-                int max_temp = 1;
+                int sum = 0;
                 for (int j = 0; j < months; j++)
                 {
-                    if (arr[i, j] > max)
-                    {
-                        max = arr[i, j];
-                       
-                    }
-                    if (max > max_temp)
-                    {
-                        max_temp = max;
-                    }
+                    sum+= arr[i, j];
 
+                    if (max < sum)
+                    {
+                        mj = i;
+                        max = sum;
+                    }
+                    if (max_temp < arr[i,j])
+                    {
+                        max_temp = arr[i, j];
+                        Console.WriteLine("в " + j + " дне была одна из максимальных температур" + " и эта температура: " + max_temp  + " градусов");
+                    }
                 }
-                Console.WriteLine(max_temp);
+               // Console.WriteLine(sum);
+                
+                
 
             }
-        
-
-
-
-
+            Console.WriteLine();
+            Console.WriteLine("максимальная температура была в " + mj +  " году ");
         }
     }
 }
