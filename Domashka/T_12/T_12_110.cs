@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 // В Москве самыми тёплыми являются дни с 15 июля до 15 августа, для проведения музыкального фестиваля
@@ -39,9 +40,9 @@ namespace Domashka
             }
             //step3. Ищу максимальную температуру подряд за 7 дней, в периоде 10 лет
             int max = int.MinValue;
+            int mi = 0;
             int mj = 0;
-            int ch = 0;
-            int max_temp = int.MinValue;
+            int max_sum = int.MinValue;
             for (int i = 0; i < year; i++)
             {
                 int sum = 0;
@@ -51,22 +52,24 @@ namespace Domashka
 
                     if (max < sum)
                     {
-                        mj = i;
-                        max = sum;
+                        mi = i;
+                        max = sum;                        
                     }
-                    if (max_temp < arr[i,j])
+                    if (sum > max_sum)
                     {
-                        max_temp = arr[i, j];
-                        Console.WriteLine("в " + j + " дне была одна из максимальных температур" + " и эта температура: " + max_temp  + " градусов");
+                        max_sum = sum;
+                        Console.WriteLine(j);
                     }
+                    
                 }
-               // Console.WriteLine(sum);
-                
-                
-
+                //  Console.WriteLine(sum);
+                Console.WriteLine(mj);
             }
+            
             Console.WriteLine();
-            Console.WriteLine("максимальная температура была в " + mj +  " году ");
+            Console.WriteLine(max);
+            Console.WriteLine();
+            Console.WriteLine("максимальная температура была в " + mi +  " году ");
         }
     }
 }
