@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,60 +17,48 @@ namespace Domashka
     {
         public void Go()
         {
-            Random random = new Random();
-            int year = 10;
-            int months = 31;
-            int[,] arr = new int[year, months];
-            //step 1. Enter array   
-            for (int i = 0; i < year; i++)
+            int[,] arr = new int[10, 30];
+            Random r = new Random();
+            // step 2. enter array
+            for (int i = 0; i < 10; i++)
             {
-                for (int j = 0; j < months; j++)
+                for (int j = 0; j < 30; j++)
                 {
-                    arr[i, j] = random.Next(5, 35);   // temperature
+                    arr[i, j] = r.Next(10, 35);
                 }
             }
-            //step 2. Output array
-            for (int i = 0; i < year; i++)
+            // step 3. Print array
+            for (int i = 0; i < 10; i++)
             {
                 Console.Write(i + " год: " + "\n");
-                for (int j = 0; j < months; j++)
+                for (int j = 0; j < 30; j++)
                 {
                     Console.WriteLine("Температура " + j + " дня " + arr[i, j] + " градусов\n");
                 }
                 Console.WriteLine();
             }
-            //step3. Ищу максимальную температуру подряд за 7 дней, в периоде 10 лет
-            int max = int.MinValue;
-            int mi = 0;
+            Console.WriteLine();
+            //step 4. ищу суммы по температурам, и дни максимальной жары
             int mj = 0;
-            int max_sum = int.MinValue;
-            for (int i = 0; i < year; i++)
+            int max_temp = int.MinValue;
+            for (int j = 0; j < 24; j++)
             {
                 int sum = 0;
-                for (int j = 0; j < months; j++)
+                int sumj = 0;
+                for (int i = 0; i < 10; i++)
                 {
-                    sum+= arr[i, j];
-
-                    if (max < sum)
-                    {
-                        mi = i;
-                        max = sum;                        
-                    }
-                    if (sum > max_sum)
-                    {
-                        max_sum = sum;
-                        Console.WriteLine(j);
-                    }
-                    
+                    sum+= arr[i, j] + arr[i, j+1] + arr[i, j+2] + arr[i, j+3] + arr[i, j+4] + arr[i, j+5] + arr[i, j+6];
                 }
-                //  Console.WriteLine(sum);
-                Console.WriteLine(mj);
+                Console.WriteLine(sum);
+                if (sum > max_temp)
+                {
+                    max_temp = sum;
+                    mj = j;
+
+                }
             }
-            
-            Console.WriteLine();
-            Console.WriteLine(max);
-            Console.WriteLine();
-            Console.WriteLine("максимальная температура была в " + mi +  " году ");
+            Console.WriteLine("Максимальная температура: " + max_temp);
+            Console.WriteLine("была во днях " + mj + " " + (mj+2) + " " + (mj+3) + " " +  (mj+4) + " " + (mj+5) + " " + (mj+6));
         }
     }
 }
