@@ -11,12 +11,12 @@ namespace Domashka
     class MyArr
     {
         int[] arr;
-        public int Length;
+        public int lenght;
 
-        public MyArr(int Size)
+        public MyArr(int size)
         {
-            arr = new int[Size];
-            Length = Size;
+            arr = new int[size];
+            lenght = size;
         }
         public int this[int index]
         {
@@ -30,36 +30,59 @@ namespace Domashka
                 return arr[index];
             }
         }
+        public void Enterar()
+        {
+            Random rand = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(0,100);
+                
+            }
+        }
+        public void Printar()
+        {
+            Console.WriteLine("Вывод массива: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + "\t");
+            }
+            Console.WriteLine();
+        }
+        public void FindMin()
+        {
+            int min = int.MaxValue;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < min)
+                {
+                    min = arr[i];
+                }
+            }
+            Console.WriteLine("минимальное: " + min);
+        }
+        public void FindMax()
+        {
+            int max = int.MinValue;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                }
+            }
+            Console.WriteLine("Максимальное: " + max);
+        }
     }
     internal class Array
     {
         public void Go()
         {
-            Random random = new Random();
-            var arr1 = new MyArr(5);
-            int count = 0;
-            int min = int.MaxValue;
-            int max = int.MinValue;
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                arr1[i] = random.Next(0,100);
-                Console.Write(arr1[i] + " ");
-                count++;
-            }
-            Console.WriteLine("\nКол-во элементов в массиве: " + count + "\n");
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                if (min > arr1[i])
-                {
-                    min = arr1[i];
-                }
-                if (max < arr1[i])
-                {
-                    max = arr1[i];
-                }
-            }
-            Console.WriteLine("minimum: " + min);
-            Console.WriteLine("maximum: " + max);
+            var ar1 = new MyArr(5);
+            ar1.Enterar();
+            ar1.Printar();
+            ar1.FindMin();
+            ar1.FindMax();
+            Console.WriteLine("размер массива = " + ar1.lenght);
         }
     }
 }
