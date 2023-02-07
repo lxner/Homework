@@ -3,5 +3,5 @@ using Domashka.exclusive;
 using Domashka.T_12;
 using Domashka.T_8;
 
-Domashka.Array prog = new Domashka.Array();
+T_12_9_B prog = new T_12_9_B();
 prog.Go();
