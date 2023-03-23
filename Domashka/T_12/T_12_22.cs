@@ -22,20 +22,10 @@ namespace Domashka
                 Console.Write(arr[i] + " ");
             }
             Console.WriteLine();
-            Console.WriteLine("С какого индекса взять первое число?: ");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("С какого индекса взять первое число?: ");
-            int b = int.Parse(Console.ReadLine());
-            int tempa = 0;
-            int tempb = 0;
-            for (int i = 0; i < 6; i++)
-            {
-                tempa = arr[a];
-                arr[b] = tempa;
-                tempb = arr[b];
-                arr[a] = tempb;
-
-            }
+            int temp = 0;
+            temp = arr[0];
+            arr[0] = arr[3];
+            arr[3] = temp;
             Console.WriteLine("Обработанный массив");
             for (int i = 0; i < 6; i++)
             {
