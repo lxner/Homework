@@ -22,10 +22,14 @@ namespace Domashka
                 Console.Write(arr[i] + " ");
             }
             Console.WriteLine();
+            Console.WriteLine("Откуда взять число (индекс)?: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("С каким числом поменять (индекс)?: ");
+            int b = int.Parse(Console.ReadLine());
             int temp = 0;
-            temp = arr[0];
-            arr[0] = arr[3];
-            arr[3] = temp;
+            temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
             Console.WriteLine("Обработанный массив");
             for (int i = 0; i < 6; i++)
             {
