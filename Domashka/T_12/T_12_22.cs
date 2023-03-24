@@ -1,39 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-// поменять 2 числа в одномерном массиве
+// заполнить массив таблицой умножения
 namespace Domashka
 {
     internal class T_12_22
     {
         public void Go()
         {
-            Random rn = new Random();
-            int[] arr = new int[6];
-            for (int i = 0; i < 6; i++)
+            int[,] arr = new int[10,10];
+            for (int i = 1; i < 10; i++)
             {
-                arr[i] = rn.Next(1,25);
+                for (int j = 1; j < 10; j++)
+                {
+                    arr[i, j] = i * j;
+                }
             }
-            Console.WriteLine("Исходный массив");
-            for (int i = 0; i < 6; i++)
+            for (int i = 1; i < 10; i++)
             {
-                Console.Write(arr[i] + " ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Откуда взять число (индекс)?: ");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("С каким числом поменять (индекс)?: ");
-            int b = int.Parse(Console.ReadLine());
-            int temp = 0;
-            temp = arr[a];
-            arr[a] = arr[b];
-            arr[b] = temp;
-            Console.WriteLine("Обработанный массив");
-            for (int i = 0; i < 6; i++)
-            {
-                Console.Write(arr[i] + " ");
+                for (int j = 1; j < 10; j++)
+                {
+                    Console.Write(arr[i, j] + " ");
+                }
+                Console.WriteLine();
             }
         }
     }
