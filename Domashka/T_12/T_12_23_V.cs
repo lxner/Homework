@@ -10,27 +10,28 @@ namespace Domashka
     {
         public void Go()
         {
-            int[,] a = new int[7, 7];
+            Random rnd = new Random();
+            Console.WriteLine("введите размер массива: ");
+            int n = int.Parse(Console.ReadLine());
+            int[,] a = new int[n, n];
             for (int i = 0; i < a.GetLength(0); i++)
             {
                 for (int j = 0; j < a.GetLength(1); j++)
                 {
-                    if (i == 0 || i == a.GetLength(0)-1)
+                    if (i > j && i+j> n-1)
                     {
                         a[i, j] = 1;
                     }
-                    if ((i == 1 || i == 5) && (j >= 1 && j <= 5))
+                    if (i < j && i+j< n-1)
                     {
                         a[i, j] = 1;
                     }
-                    if ((i==2 || i==4) && (j>=2 && j<=4))
+
+                    if (i == j || i + j == n-1)
                     {
-                        a[i, j]=1;
+                        a[i, j] = 1;
                     }
-                    if (i==3 && j==3)
-                    {
-                        a[i, j]=1;
-                    }
+
                 }
             }
             for (int i = 0; i < a.GetLength(0); i++)
