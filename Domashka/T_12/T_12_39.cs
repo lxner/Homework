@@ -34,17 +34,14 @@ namespace Domashka
                 Console.WriteLine();
             }
             int count = 0;
-            for (int i = 0; i < ryad; i++)
+            for (int j = 0; j < mesta; j++)
             {
-                for (int j = 0; j < mesta; j++)
+                if (arr[12, j] == 1)
                 {
-                    if (arr[12, j] == 1)
-                    {
-                        count++;
-                    }
+                    count++;
                 }
             }
-            Console.WriteLine("число проданных мест в 12 ряду = " + count/25);
+            Console.WriteLine("число проданных мест в 12 ряду = " + count);
         }
     }
 }
